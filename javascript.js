@@ -98,3 +98,27 @@ function getWinner (computerWins, playerWins) {
 game();
 getWinner(computerWins, playerWins);
 console.log(finalWinner);
+
+
+// Query Selectings
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorsButton = document.querySelector('.scissors');
+
+let computerImage = document.querySelector('.computerChoiceImage');
+let computerScore = document.querySelector('.computerScoreTally');
+let playerImage = document.querySelector('.playerChoiceImage');
+let playerScore = document.querySelector('.playerScoreTally');
+
+rockButton.addEventListener('click', () => {
+    alert('rock');
+});
+
+paperButton.addEventListener('click', () => {
+    alert('paper');
+});
+
+scissorsButton.addEventListener('click', () => {
+    alert('scissors');
+});
+

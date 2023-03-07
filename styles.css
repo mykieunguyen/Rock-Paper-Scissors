@@ -16,8 +16,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:#45484B ;
-    color: yellow;
+    background-color:#383634 ;
+    color: #fce0a1;
+    font-size: 40px;
     width: 100vw;
     height: 10vh;
     margin: 0px;
