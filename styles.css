@@ -1,0 +1,24 @@
+body {
+    height: 100vh;
+    margin: 0px;
+    background-color:#E8E0D1;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#45484B ;
+    color: yellow;
+    width: 100vw;
+    height: 10vh;
+    margin: 0px;
+}
