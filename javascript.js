@@ -57,26 +57,26 @@ function playRound(computerSelection, playerSelection) {
 }
 
 
-// Five Rounds of Game 
-let gamePlayed = 5;
-let computerWins = 0;
-let playerWins = 0;
+// // Five Rounds of Game 
+// let gamePlayed = 5;
+// let computerWins = 0;
+// let playerWins = 0;
 
-function game() {
-    for (let i = 0; i < gamePlayed; i++) {
-        computerSelection = getComputerChoice();
-        playerSelection = getPlayerChoice();
-        roundWinner =  playRound(computerSelection, playerSelection);
-        console.log(roundWinner);
+// function game() {
+//     for (let i = 0; i < gamePlayed; i++) {
+//         computerSelection = getComputerChoice();
+//         playerSelection = getPlayerChoice();
+//         roundWinner =  playRound(computerSelection, playerSelection);
+//         console.log(roundWinner);
 
-        if(roundWinner == "Computer wins!") {
-            computerWins++;
-        }
-        else if(roundWinner == "Player wins!") {
-            playerWins ++;
-        }
-    }
-}
+//         if(roundWinner == "Computer wins!") {
+//             computerWins++;
+//         }
+//         else if(roundWinner == "Player wins!") {
+//             playerWins ++;
+//         }
+//     }
+// }
 
 
 // Calculate the Winner after 5 rounds
