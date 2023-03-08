@@ -3,6 +3,21 @@ let computerSelection;
 let playerSelection;
 let roundWinner;
 
+
+let computerWins = 0;
+let playerWins = 0;
+let finalWinner;
+
+// Query Selecting Variables 
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorsButton = document.querySelector('.scissors');
+
+let computerImage = document.querySelector('.computerChoiceImage');
+let computerScore = document.querySelector('.computerScoreTally');
+let playerImage = document.querySelector('.playerChoiceImage');
+let playerScore = document.querySelector('.playerScoreTally');
+
 // Function to Obtain Computer's Choice 
 function getComputerChoice() {
 
@@ -18,13 +33,21 @@ function getComputerChoice() {
     }
 }
 
-// //Function to  Obtain player's choice 
-// function getPlayerChoice () {
-//    let playerInput = prompt("Please select your weapon: rock, paper, or scissors.");
-//    return playerInput = playerInput.toLowerCase();
-// }
 
-// One Game Round
+// Function to Display Computer Choice onto Computer Image
+function getComputerImage(computerSelection) {
+    if (computerSelection === 'rock') {
+        computerImage.src = './images/rock.png';
+    }
+    else if (computerSelection === 'paper') {
+        computerImage.src = './images/paper.png';
+    }
+    else if(computerSelection === 'sicssors') {
+        computerImage.src = './images/scissors.png';
+    }
+}
+
+// Function to perform one round of game 
 function playRound(computerSelection, playerSelection) {
     if (computerSelection == "rock" && playerSelection == "rock") {
         return roundWinner = "Tie";
@@ -56,74 +79,7 @@ function playRound(computerSelection, playerSelection) {
 
 }
 
-
-// // Five Rounds of Game 
-let computerWins = 0;
-let playerWins = 0;
-let finalWinner;
-
-// function game() {
-//     for (let i = 0; i < gamePlayed; i++) {
-//         computerSelection = getComputerChoice();
-//         playerSelection = getPlayerChoice();
-//         roundWinner =  playRound(computerSelection, playerSelection);
-//         console.log(roundWinner);
-
-//         if(roundWinner == "Computer wins!") {
-//             computerWins++;
-//         }
-//         else if(roundWinner == "Player wins!") {
-//             playerWins ++;
-//         }
-//     }
-// }
-
-
-// // Calculate the Winner after 5 rounds
-// let finalWinner;
-// function getWinner (computerWins, playerWins) {
-//     if (computerWins > playerWins) {
-//         return finalWinner = "Computer Won after 5 rounds";
-//     }
-//     else if (computerWins < playerWins) {
-//         return finalWinner = "Player Won after 5 rounds";
-//     }
-//     else if (computerWins = playerWins) {
-//         return finalWinner = "Tied game after 5 rounds";
-//     }
-// }
-
-
-// // // Game Execution 
-// game();
-// getWinner(computerWins, playerWins);
-// console.log(finalWinner);
-
-
-// Query Selecting
-const rockButton = document.querySelector('.rock');
-const paperButton = document.querySelector('.paper');
-const scissorsButton = document.querySelector('.scissors');
-
-let computerImage = document.querySelector('.computerChoiceImage');
-let computerScore = document.querySelector('.computerScoreTally');
-let playerImage = document.querySelector('.playerChoiceImage');
-let playerScore = document.querySelector('.playerScoreTally');
-
-// Function to Display Computer Choice onto Computer Image
-function getComputerImage(computerSelection) {
-    if (computerSelection === 'rock') {
-        computerImage.src = './images/rock.png';
-    }
-    else if (computerSelection === 'paper') {
-        computerImage.src = './images/paper.png';
-    }
-    else if(computerSelection === 'sicssors') {
-        computerImage.src = './images/scissors.png';
-    }
-}
-
-
+// Function to determine if there is a final winner
 function game(roundWinner) {
     if (computerWins !== 5 || playerWins !== 5) {
         if(roundWinner == "Computer wins!") {
@@ -153,6 +109,8 @@ function game(roundWinner) {
 
 
 // UI 
+
+// Rock is clicked
 rockButton.addEventListener('click', () => {
     getComputerChoice();
     getComputerImage(computerSelection);
@@ -167,6 +125,7 @@ rockButton.addEventListener('click', () => {
     playerScore.innerHTML = `Player: ${playerWins}`;
 });
 
+// Paper is clicked
 paperButton.addEventListener('click', () => {
     getComputerChoice();
     getComputerImage(computerSelection);
@@ -181,6 +140,7 @@ paperButton.addEventListener('click', () => {
     playerScore.innerHTML = `Player: ${playerWins}`;
 });
 
+// Scissors is clicked
 scissorsButton.addEventListener('click', () => {
     getComputerChoice();
     getComputerImage(computerSelection);
