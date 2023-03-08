@@ -18,11 +18,11 @@ function getComputerChoice() {
     }
 }
 
-//Function to  Obtain player's choice 
-function getPlayerChoice () {
-   let playerInput = prompt("Please select your weapon: rock, paper, or scissors.");
-   return playerInput = playerInput.toLowerCase();
-}
+// //Function to  Obtain player's choice 
+// function getPlayerChoice () {
+//    let playerInput = prompt("Please select your weapon: rock, paper, or scissors.");
+//    return playerInput = playerInput.toLowerCase();
+// }
 
 // One Game Round
 function playRound(computerSelection, playerSelection) {
@@ -58,9 +58,9 @@ function playRound(computerSelection, playerSelection) {
 
 
 // // Five Rounds of Game 
-// let gamePlayed = 5;
-// let computerWins = 0;
-// let playerWins = 0;
+let computerWins = 0;
+let playerWins = 0;
+let finalWinner;
 
 // function game() {
 //     for (let i = 0; i < gamePlayed; i++) {
@@ -79,28 +79,28 @@ function playRound(computerSelection, playerSelection) {
 // }
 
 
-// Calculate the Winner after 5 rounds
-let finalWinner;
-function getWinner (computerWins, playerWins) {
-    if (computerWins > playerWins) {
-        return finalWinner = "Computer Won after 5 rounds";
-    }
-    else if (computerWins < playerWins) {
-        return finalWinner = "Player Won after 5 rounds";
-    }
-    else if (computerWins = playerWins) {
-        return finalWinner = "Tied game after 5 rounds";
-    }
-}
+// // Calculate the Winner after 5 rounds
+// let finalWinner;
+// function getWinner (computerWins, playerWins) {
+//     if (computerWins > playerWins) {
+//         return finalWinner = "Computer Won after 5 rounds";
+//     }
+//     else if (computerWins < playerWins) {
+//         return finalWinner = "Player Won after 5 rounds";
+//     }
+//     else if (computerWins = playerWins) {
+//         return finalWinner = "Tied game after 5 rounds";
+//     }
+// }
 
 
-// // Game Execution 
-game();
-getWinner(computerWins, playerWins);
-console.log(finalWinner);
+// // // Game Execution 
+// game();
+// getWinner(computerWins, playerWins);
+// console.log(finalWinner);
 
 
-// Query Selectings
+// Query Selecting
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
@@ -110,15 +110,88 @@ let computerScore = document.querySelector('.computerScoreTally');
 let playerImage = document.querySelector('.playerChoiceImage');
 let playerScore = document.querySelector('.playerScoreTally');
 
+// Function to Display Computer Choice onto Computer Image
+function getComputerImage(computerSelection) {
+    if (computerSelection === 'rock') {
+        computerImage.src = './images/rock.png';
+    }
+    else if (computerSelection === 'paper') {
+        computerImage.src = './images/paper.png';
+    }
+    else if(computerSelection === 'sicssors') {
+        computerImage.src = './images/scissors.png';
+    }
+}
+
+
+function game(roundWinner) {
+    if (computerWins !== 5 || playerWins !== 5) {
+        if(roundWinner == "Computer wins!") {
+            computerWins++;
+        }
+        else if(roundWinner == "Player wins!") {
+            playerWins ++;
+        }
+    }
+    if (computerWins === 5) {
+        alert("Player has been defeated")
+        computerWins = 0;
+        playerWins = 0;
+        computerImage.src = './images/question.png';
+        playerImage.src = './images/question.png';
+        
+
+    }    
+    else if (playerWins === 5) {
+        alert("Computer has been defeated");
+        computerWins = 0;
+        playerWins = 0;
+        computerImage.src = './images/question.png';
+        playerImage.src = './images/question.png';
+    }
+}
+
+
+// UI 
 rockButton.addEventListener('click', () => {
-    alert('rock');
+    getComputerChoice();
+    getComputerImage(computerSelection);
+    playerImage.src = "./images/rock.png";
+    playerSelection = 'rock';
+    playRound(computerSelection,playerSelection);
+    console.log(roundWinner);
+    computerScore.innerHTML = `Computer: ${computerWins}`;
+    playerScore.innerHTML = `Player: ${playerWins}`;
+    game(roundWinner);
+    computerScore.innerHTML = `Computer: ${computerWins}`;
+    playerScore.innerHTML = `Player: ${playerWins}`;
 });
 
 paperButton.addEventListener('click', () => {
-    alert('paper');
+    getComputerChoice();
+    getComputerImage(computerSelection);
+    playerImage.src = "./images/paper.png";
+    playerSelection = 'paper';
+    playRound(computerSelection,playerSelection);
+    console.log(roundWinner);
+    computerScore.innerHTML = `Computer: ${computerWins}`;
+    playerScore.innerHTML = `Player: ${playerWins}`;
+    game(roundWinner);
+    computerScore.innerHTML = `Computer: ${computerWins}`;
+    playerScore.innerHTML = `Player: ${playerWins}`;
 });
 
 scissorsButton.addEventListener('click', () => {
-    alert('scissors');
+    getComputerChoice();
+    getComputerImage(computerSelection);
+    playerImage.src = "./images/scissors.png";
+    playerSelection = 'scissors';
+    playRound(computerSelection,playerSelection);
+    console.log(roundWinner);
+    computerScore.innerHTML = `Computer: ${computerWins}`;
+    playerScore.innerHTML = `Player: ${playerWins}`;
+    game(roundWinner);
+    computerScore.innerHTML = `Computer: ${computerWins}`;
+    playerScore.innerHTML = `Player: ${playerWins}`;
 });
 
